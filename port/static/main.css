@@ -1,3 +1,59 @@
-h1{
-    color:red;
+body {
+    background-color: rgb(246, 243, 238);
 }
+
+/* navbar */
+.navbar {
+    background-color: rgba(9, 110, 243, 0.924);
+    font-size: 1.5rem;
+}
+.add_space {
+    height: 80px;
+}
+
+/* banner */
+
+#banner-section{
+    background: url("/static/img/background2.jpg") 50% 0 no-repeat fixed;
+    color: white;
+    text-align: center;
+    height: 800px;
+    padding: 100px 0 0 0;  
+    margin-bottom: 100px; 
+    opacity: 1;
+}
+
+/* main */
+
+/* about */
+
+#about-section{
+    background: url("/static/img/blue.jpg") 50% 0 no-repeat fixed;
+    color: white;
+    text-align: center;
+    height: 800px;
+    padding: 100px 0 0 0;  
+    margin-bottom: 100px; 
+    opacity: 1;
+}
+/* counter */
+
+#counter-section{
+    background: url("/static/img/background2.jpg") 50% 0 no-repeat fixed;
+    color: white;
+    text-align: center;
+    height: 400px;
+    padding: 100px 0 0 0;  
+    margin-bottom: 100px; 
+    opacity: 1;
+}
+#contact-section{
+    background: url("/static/img/background2.jpg") 50% 0 no-repeat fixed;
+    color: white;
+    text-align: center;
+    height: 800px;
+    padding: 100px 0 0 0;  
+    margin-bottom: 100px; 
+    opacity: 1;
+}
+

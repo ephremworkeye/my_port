@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}work{% endblock %}
+
+{% block content %}
+<div class="container main-section my-4">
+    <!-- main-header -->
+    <div class="header">
+        <h1 class="display-2 fw-bolder text-center">
+            MY WORK
+        </h1>
+    </div>
+    <!-- main-detail -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for portfolio in portfolios %}
+        <div class="col">
+            <div class="card">
+                <img src="{{ portfolio.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ portfolio.name }}</h5>
+                    <p class="card-text">{{ portfolio.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <h3>No portfolio at this time </h3>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}detail{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="detail-img">
+
+    <div class="add-space">
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="fw-bloder mb-3">{{ portfolio.name|upper }}</h1>
+                <img class="" src="{{ portfolio.image.url }}" alt="">
+            </div>
+
+
+            <div class="col text-start pt-5 mt-5">
+                <h2 class="fw-bolder text-start py-2 px-5">TECHNOLOGY USED</h2>
+                    <ul>
+                        {% for skill in skills %}
+                        <li class="nav-item d-inline-block bg-primary text-white px-4 py-2 m-2 rounded-pill"> {{ skill.name|upper }} </li>
+                        {% empty %}
+                        <li>NO TECHNOLOGY USED</li>
+                        {% endfor %}
+                    </ul>
+                <p class="fs-5 px-5 fw-bloder">{{ portfolio.description }}</p>
+                <div class="text-center">
+                    <a href="{{ portfolio.website_link }}"
+                    class="nav-link px-3 d-inline bg-primary text-white  rounded-pill">WEBSITE</a>
+                    <a href="{{ portfolio.github_link }}"
+                    class="nav-link px-3 d-inline bg-primary text-white  rounded-pill">GITHUB</a>
+                </div>
+            </div>
+        </div>
+        <div class="add-space">
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

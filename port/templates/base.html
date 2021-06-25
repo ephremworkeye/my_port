@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -51,7 +51,27 @@
 
     {% block content %}
     {% endblock %}
-    <h5>This is footer</h5>
+    <!-- ======= Footer ======= -->
+ <footer>
+  <div class="container-fluid text-light bg-primary">
+      <div class="row text-center">
+          <div class="col p-5">
+              <p> <a href="{% url 'port:about' %}" class="nav-link footer-link text-white">About Me</a> </p>
+              <p> <a href="{% url 'port:contact' %}" class="nav-link footer-link text-white">Contact Me</a> </p>
+
+          </div>
+          <div class="col p-5">
+              <p> <a href="{% url 'port:term' %}" class="nav-link footer-link text-white">Terms</a></p>
+              <p> <a href="{% url 'port:privacy' %}" class="nav-link footer-link text-white">Privacy Policy</a></p>
+
+          </div>
+          <div class="col p-5">
+              <p> <a href="{% url 'port:cookies' %}" class="nav-link footer-link text-white">Cookie Settings</a> </p>
+              <p> <a href="{% url 'port:work' %}" class="nav-link footer-link text-white">Feautured Projects</a></p>
+          </div>
+      </div>
+  </div>
+</footer><!-- End  Footer -->
     
     <!-- javascript -->
     <script src="{% static 'script.js' %}"></script>

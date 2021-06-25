@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="add-space">
+
+</div>
+<div class="add-space">
+
+</div>
+<!-- about -->
+<div class="container my-4">
+    <div class="header">
+        <h1 class="display-2 fw-bolder text-center">
+            ABOUT
+        </h1>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 bg-light">
+            <div class="row">
+                <div class="col-md-6 p-3">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-5">
+                            <div class="text-primary">
+                                <img src="{% static 'img/programmer.jpg' %}" alt="" style="max-height:300px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-7">
+                            <div class="about-info">
+                                <p><span class="title-s">Name: </span> <span>{{ profile.first_name }}
+                                        {{ profile.last_name }}</span></p>
+                                <p><span class="title-s">Profile: </span> <span>{{ profile.profession }}</span></p>
+                                <p><span class="title-s">Email: </span> <span>{{ profile.email}}</span></p>
+                                <p><span class="title-s">Phone: </span> <span>{{ profile.phone}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill pt-3">
+                        <h3 class="my-3">Skill</h3>
+                        <div class="mb-2">
+                            {% for skill in skills %}
+                            <span>{{ skill.name|upper }}</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    style="width: {{ skill.rate }}%;" aria-valuenow="{{ skill.rate }}" aria-valuemin="0"
+                                    aria-valuemax="100">{{ skill.rate }}</div>
+                            </div>
+                            {% empty %}
+                            <p>No skill listed here</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3">
+                    <div class="about-me pt-4 pt-md-0">
+                        <p class="lead">
+                            Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur
+                            arcu erat, accumsan id
+                            imperdiet et, porttitor
+                            at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                            Nulla
+                            porttitor accumsan tincidunt.
+                        </p>
+                        <p class="lead">
+                            Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit
+                            tortor eget felis
+                            porttitor volutpat. Vestibulum
+                            ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
+                        </p>
+                        <p class="lead">
+                            Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in,
+                            elementum id enim.
+                            Nulla porttitor accumsan
+                            tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                        </p>
+                        <p class="lead">
+                            Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in,
+                            elementum id enim.
+                            Nulla porttitor accumsan
+                            tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="add-space">
+
+</div>
+
+{% endblock %}

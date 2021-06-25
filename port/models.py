@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Profile(models.Model):
@@ -20,9 +21,12 @@ class Profile(models.Model):
     experience = models.PositiveIntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def get_absolute_url(self):
+        return reverse("port:about", args=[self.id])
 
     def __str__(self):
         return self.first_name
+    
     
 
 class Portfolio(models.Model):
@@ -38,12 +42,14 @@ class Portfolio(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse("port:detail", args=[self.id, self.slug])
+    
     class Meta:
         ordering = ('-created_at',)
     
     def __str__(self):
         return self.name
-    
 
 class Skill(models.Model):
     name = models.CharField(max_length=120)
