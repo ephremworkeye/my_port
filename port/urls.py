@@ -11,4 +11,7 @@ urlpatterns = [
     path('term', views.term, name='term'),
     path('privacy', views.privacy, name='privacy'),
     path('cookies', views.cookies, name='cookies'),
+    path('search', views.search, name='search'),
+    path('download', views.download_resume, 'download'),
+
 ]

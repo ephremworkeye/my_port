@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Profile, Portfolio, Skill, Testimonial, PortfolioSkill, Contact
 from .forms import ContactForm
+from django.core.mail import send_mail
 
 # Create your views here.
 def home(request):
@@ -37,8 +38,25 @@ def work(request):
     return render(request, 'port/work.html', {'portfolios' :portfolios})
 
 def contact(request):
-    form = ContactForm()
-    return render(request, 'port/contact.html', {'form':form})
+    profile = Profile.objects.get(id=1)
+    submitted = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd.get('email', 'noreply@example.com'),
+                ['helloworld@gmail.com'],
+            )
+            form.save()
+            submitted=True
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'port/contact.html', {'form': form, 'submitted': submitted, 'profile': profile})
 
 def term(request):
     return render(request, 'port/term.html')
@@ -49,3 +67,20 @@ def privacy(request):
 def cookies(request):
     return render(request, 'port/cookies.html')
 
+
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        portfolio_lists = Portfolio.objects.filter(is_published=True)
+        results = portfolio_lists.filter(name__icontains=searched)
+        return render(request, 'port/search.html', {'searched': searched, 'results': results})
+    return render(request, 'port/search.html')
+
+def download_resume(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type='resume')
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response
+    raise Http404

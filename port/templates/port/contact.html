@@ -4,17 +4,23 @@
 {% block title %}contact{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="display-3 fw-bolder mb-4 text-center">
-        CONTACT ME
-    </h1>
-</div>
+
+<!-- ======= Contact Section ======= -->
 <div class="container-fluid" id="contact-section">
+    <div class="container">
+        <h1 class="display-3 fw-bolder mb-4 text-center">
+            CONTACT ME
+        </h1>
+    </div>
+    {% if submitted %}
+    <div class=" container float-center text-white col-lg-9 col-md-12" style="height: 700px;">
+        <h4 class="my-4 py-2 text-center" style="background-color: #4a9010fa;">Thank you, your form is submitted </h4>
+    </div>
+    {% else %}
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <form action="" method="post"
-                    class="text-light fw-bolder fs-6 text-uppercase">
+                <form action="" method="post" class="text-light fw-bolder fs-6 text-uppercase">
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <div class="form-group text-start">
@@ -46,36 +52,39 @@
                         mollitia inventore?
                     </p>
                     <div class="container col-sm-11 col-md-11 col-lg-10 p-3"></div>
-                    <div class="mb-2 text-light text-start">
-                        <div class="d-inline pr-5"></div>
-                        <div class="d-inline p-2 fs-5">{{ profile.address }}</div>
-                    </div>
-                    <div class="mb-2 text-light text-start =">
-                        <div class="d-inline pr-5"></div>
-                        <div class="d-inline p-2 fs-5">{{ profile.phone }}</div>
-                    </div>
-                    <div class="mb-2 text-light text-start">
-                        <div class="d-inline pr-5"></div>
-                        <div class="d-inline p-2 fs-5">{{ profile.website }}</div>
-                    </div>
+                        <div class="mb-2 text-light text-start">
+                          
+                            <div class="d-inline p-2 fs-5">{{ profile.address }}</div>
+                        </div>
+                        <div class="mb-2 text-light text-start =">
+                         
+                            <div class="d-inline p-2 fs-5">{{ profile.phone }}</div>
+                        </div>
+                        <div class="mb-2 text-light text-start">
+                            <div class="d-inline pr-5"></div>
+                            <div class="d-inline p-2 fs-5">{{ profile.website }}</div>
+                        </div>
 
-                    <div class="socials text-start">
-                        <ul class="list-inline">
-                            <li class="list-inline-item px-3"><a class="nav-link"
-                                    href="{{ profile.website }}"></a></li>
-                            <li class="list-inline-item px-3"><a class="nav-link"
-                                    href="{{ profile.github }}"></a>
-                            </li>
-                            <li class="list-inline-item px-3"><a class="nav-link"
-                                    href=""></a></li>
-                        </ul>
+                        <div class="socials text-start">
+                            <ul class="list-inline">
+                                <li class="list-inline-item px-3"><a class="nav-link"
+                                        href="{{ profile.website }}"></a></li>
+                                <li class="list-inline-item px-3"><a class="nav-link"
+                                        href="{{ profile.github }}"></a>
+                                </li>
+                                <li class="list-inline-item px-3"><a class="nav-link"
+                                        href=""></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
+{% endif %}
+</div>
 <!-- End Contact Section -->
+
 
 {% endblock %}

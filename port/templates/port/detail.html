@@ -4,38 +4,34 @@
 {% block title %}detail{% endblock %}
 
 {% block content %}
-<div class="container-fluid" id="detail-img">
 
-    <div class="add-space">
-
-    </div>
-    <div class="container">
+<div class="container-fluid" id="detail-section">
+    <div class="container my-3">
         <div class="row">
-            <div class="col text-center">
-                <h1 class="fw-bloder mb-3">{{ portfolio.name|upper }}</h1>
+            <div class="col">
+                <h1 class="fs-1 fw-bloder mb-3">{{ portfolio.name|upper }}</h1>
                 <img class="" src="{{ portfolio.image.url }}" alt="">
             </div>
 
-
-            <div class="col text-start pt-5 mt-5">
-                <h2 class="fw-bolder text-start py-2 px-5">TECHNOLOGY USED</h2>
+            <div class="col text-start text-light my-5">
+                <h2 class="fw-bolder text-start py-2 px-5 mx-3">TECHNOLOGY USED</h2>
                     <ul>
                         {% for skill in skills %}
-                        <li class="nav-item d-inline-block bg-primary text-white px-4 py-2 m-2 rounded-pill"> {{ skill.name|upper }} </li>
+                        <li class="nav-item d-inline-block bg-primary text-white px-3 py-2 m-2 rounded-pill"> {{ skill.name|upper }} </li>
                         {% empty %}
                         <li>NO TECHNOLOGY USED</li>
                         {% endfor %}
                     </ul>
-                <p class="fs-5 px-5 fw-bloder">{{ portfolio.description }}</p>
-                <div class="text-center">
-                    <a href="{{ portfolio.website_link }}"
-                    class="nav-link px-3 d-inline bg-primary text-white  rounded-pill">WEBSITE</a>
-                    <a href="{{ portfolio.github_link }}"
-                    class="nav-link px-3 d-inline bg-primary text-white  rounded-pill">GITHUB</a>
+                <p class="fs-5 px-5 mx-3 fw-bloder">{{ portfolio.description }}</p>
+                <div>
+                    <ul class="text-start">
+                        <a href="{{ portfolio.github_link }}" class="nav-link d-inline fs-1 pr-5"><li class="nav-item d-inline"><i class="icon-github-sign"></i></li></a>
+                        <a href="{{ portfolio.website_link }}" class="nav-link d-inline fs-1 p-5"><li class="nav-item d-inline"><i class="icon-dribbble"></i></li></a>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="add-space">
+        <div class="my-5 py-5">
 
         </div>
 
