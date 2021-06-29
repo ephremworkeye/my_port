@@ -6,7 +6,7 @@
 {% block content %}
 
 <!-- ======= Cookies ======= -->
-<div class="container-fluid" id="contact-section" style="height: 700px;">
+<div class="container-fluid" id="search-section" style="height: 700px;">
     <div class="container">
         <h1 class="display-3 fw-bolder mb-4 text-center" id="main-header">
             SEARCH
@@ -15,7 +15,7 @@
     {% if searched %}
     <div class="container py-2">
         <div class="row">
-            <h3 class="text-light bg-primary p-2">Portfolio that contains <i>"{{ searched }}:"</i> </h3>
+            <h3 class="text-light bg-primary p-2">Portfolio that contains <em>"{{ searched }}"</em> </h3>
             <div class="col py-3 px-6">
                 {% for result in results %}
                 <h4 class="text-light fw-bolder text-center"><a class="nav-link p-2" href="{{ result.get_absolute_url }}">{{ result.name }}</a></h4>

@@ -6,71 +6,74 @@
 {% block content %}
 
 <!-- about -->
-<div class="container my-4">
-    <div class="header">
-        <h1 class="display-2 fw-bolder text-center my-5">
-            ABOUT
-        </h1>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row my-3">
-        <div class="col-lg-7 col-md-12 col-sm-12 py-3">
-            <img class="rounded float-start" src="{% static 'img/profile1.jpg' %}" alt="" style="max-width: 80% ;">
+<div class="container-fluid" id="about-section">
+    <div class="container mt-5">
+        <div class="header">
+            <h1 class="display-2 fw-bolder text-center my-5">
+                ABOUT
+            </h1>
         </div>
-        <div class="col-lg-5 col-md-12 col-sm-12">
-            <div class="about-info text-center-justify my-3 py-5">
-                <p class="fs-5 fw-bolder"><span>Name: </span> <span>{{ profile.first_name }}
-                        {{ profile.last_name }}</span></p>
-                <p class="fs-5 fw-bolder"><span>Profile: </span> <span>{{ profile.profession }}</span></p>
-                <p class="fs-5 fw-bolder"><span>Email: </span> <span>{{ profile.email}}</span></p>
-                <p class="fs-5 fw-bolder"><span>Phone: </span> <span>{{ profile.phone}}</span></p>
+    </div>
+    
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-lg-7 col-md-12 col-sm-12 py-3">
+                <img class="rounded float-start" src="{% static 'img/profile1.jpg' %}" alt="" style="max-width: 80% ;">
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 col-md-5">
-            <h3 class="my-3">Skill</h3>
-            <div class="mb-2">
-                {% for skill in skills %}
-                <span>{{ skill.name|upper }}</span>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                        style="width: {{ skill.rate }}%;" aria-valuenow="{{ skill.rate }}" aria-valuemin="0"
-                        aria-valuemax="100">{{ skill.rate }}</div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="about-info text-center-justify my-3 py-5">
+                    <p class="fs-5 fw-bolder"><span>Name: </span> <span>{{ profile.first_name }}
+                            {{ profile.last_name }}</span></p>
+                    <p class="fs-5 fw-bolder"><span>Profile: </span> <span>{{ profile.profession }}</span></p>
+                    <p class="fs-5 fw-bolder"><span>Email: </span> <span>{{ profile.email}}</span></p>
+                    <p class="fs-5 fw-bolder"><span>Phone: </span> <span>{{ profile.phone}}</span></p>
                 </div>
-                {% empty %}
-                <p>No skill listed here</p>
-                {% endfor %}
             </div>
         </div>
-        <div class="col-lg-6 col-md-7">
-            <div class="about-me pt-4 pt-md-0">
-                <p class="lead">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur
-                    arcu erat, accumsan id
-                    imperdiet et, porttitor
-                    at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
-                    Nulla
-                    porttitor accumsan tincidunt.
-                </p>
-                <p class="lead">
-                    Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit
-                    tortor eget felis
-                    porttitor volutpat. Vestibulum
-                    ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
-                </p>
-                <p class="lead">
-                    Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in,
-                    elementum id enim.
-                    Nulla porttitor accumsan
-                    tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                </p>
+        <div class="row">
+            <div class="col-lg-6 col-md-5">
+                <h3 class="my-3">Skill</h3>
+                <div class="mb-2">
+                    {% for skill in skills %}
+                    <span>{{ skill.name|upper }}</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                            style="width: {{ skill.rate }}%;" aria-valuenow="{{ skill.rate }}" aria-valuemin="0"
+                            aria-valuemax="100">{{ skill.rate }}</div>
+                    </div>
+                    {% empty %}
+                    <p>No skill listed here</p>
+                    {% endfor %}
+                </div>
             </div>
+            <div class="col-lg-6 col-md-7">
+                <div class="about-me pt-4 pt-md-0">
+                    <p class="lead">
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur
+                        arcu erat, accumsan id
+                        imperdiet et, porttitor
+                        at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                        Nulla
+                        porttitor accumsan tincidunt.
+                    </p>
+                    <p class="lead">
+                        Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit
+                        tortor eget felis
+                        porttitor volutpat. Vestibulum
+                        ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
+                    </p>
+                    <p class="lead">
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in,
+                        elementum id enim.
+                        Nulla porttitor accumsan
+                        tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                    </p>
+                </div>
+            </div>
+    
         </div>
-
     </div>
+    
 </div>
 
 {% endblock %}
